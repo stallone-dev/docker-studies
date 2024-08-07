@@ -14,8 +14,15 @@
 docker volume create DATA-HOUSE
 # Cria um "volume" de memória no HOST que será persistente, equivalente a uma pasta com um link simbólico
 
-docker container run -e MYSQL_ROOT_PASSWORD=senha123 --mount type=volume, src=DATA-HOUSE, target=/var/lib/mysql -d mysql # OU
-docker container run -e MYSQL_ROOT_PASSWORD=senha123 --volume DATA-HOUSE:/var/lib/mysql -d mysql
+docker container run \
+    -e MYSQL_ROOT_PASSWORD=senha123 \
+    --mount type=volume, src=DATA-HOUSE, target=/var/lib/mysql \
+    -d mysql 
+# OU
+docker container run \
+    -e MYSQL_ROOT_PASSWORD=senha123 \
+    --volume DATA-HOUSE:/var/lib/mysql \
+    -d mysql
 # Vincula os dados INTERNOS criados na pasta "/var/lib/mysql" para o novo endereço EXTERNO "DATA-HOUSE"
 
 # Criando algum dado para teste
@@ -101,8 +108,12 @@ Ex:
 #### Salvando arquivos fora do Container
 
 ```shell
-docker container run --mount type=${VOLUME-TyPE}, src=${ABSOLUTE-HOST-PATH}, target=${ABSOLUTE-CONTAINER-PATH} -d ${IMAGE}
-docker container run --volume ${ABSOLUTE-HOST-PATH}:${ABSOLUTE-CONTAINER-PATH} -d ${IMAGE}
+docker container run \
+    --mount type=${VOLUME-TyPE}, src=${ABSOLUTE-HOST-PATH}, target=${ABSOLUTE-CONTAINER-PATH} \
+    -d ${IMAGE}
+docker container run \
+    --volume ${ABSOLUTE-HOST-PATH}:${ABSOLUTE-CONTAINER-PATH} \
+    -d ${IMAGE}
 # Aqui os arquivos estão sendo redirecionados para a pasta especificada pelo HOST os arquivos que forem criados em "${ABSOLUTE-CONTAINER-PATH}"
 # EX: docker container run --volume /home/$USER/DOCKER-DATA/guest1:/var/lib/mysql -d mysql
 ```

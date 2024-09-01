@@ -2,20 +2,28 @@
 
 ### Resumo
 >
-> Docker é uma ferramenta de virtualização de baixo custo, focada em performance e economia de recursos para execução de softwares.
+> Docker é uma ferramenta de virtualização de ambientes isolados, focada em performance e economia de recursos para execução de softwares.
 >
 > Através dele é possível construir contextos rigorosamente controlados, chamados `containers`, onde projetos e serviços podem ser hospedados.
 >
 > O Docker pode ser controlado via `CLI`, através de comandos semânticos como `docker container run` e `docker image pull`, permitindo a rápida assimilação e compreensão do que está sendo comandado.
 >
 
+|**EXEMPLO dos conceitos apresentados**|
+|:-:|
+|[Download de imagens](../examples/0-basico/images.sh)|
+|[Preparo de containers](../examples/0-basico/containers.sh)|
+|[Manipulando arquivos](../examples/0-basico/files-manipulating.sh)|
+|[Gerindo permissões de usuário](../examples/0-basico/permissions.sh)|
+|[Gerindo acesso externo](../examples/0-basico/external-access.sh)|
+
 ### Conceitos inicais
 
-Docker é uma plataforma de virtualização de visa emular um SO leve que seja ao mesmo tempo isolado e funcional do restante do sistema operacional.
+Docker é uma plataforma de virtualização de visa emular um `SO` leve que seja ao mesmo tempo funcional e isolado do restante do sistema gerenciador.
 
-A principal funcionalidade do Docker é a capacidade de configurar um contexto completo, de forma rápida e consistente, ideal para testes e deploy.
+A principal funcionalidade do Docker é a capacidade de configurar um contexto completo, de forma rápida, consistente e reciplável, ideal para testes e deploy.
 
-_Em analogia, o Docker se comporta como um "**nivelador**", estabelecendo critérios rigorosos de recursos, privilégios e funcionalidades disponíveis, independente de qual máquina rode o projeto._
+_Em analogia, o Docker se comporta como uma "**régua de controle**", estabelecendo critérios rigorosos de recursos, privilégios e funcionalidades disponíveis, independente de qual máquina rode o projeto._
 
 ### Instalação
 
@@ -233,8 +241,8 @@ Esse processo é feito através da tag " `-p ${HOST-PORT}:${CONTAINER-PORT}`" du
 
 > [!TIP] Exemplo
 >```shell
->docker container run -p 3331:3306 -d mysql`
->docker container run --name MYSQL -p 3399:3306 -d mysql`
+>docker container run -p 3331:3306 -d mysql
+>docker container run --name MYSQL -p 3399:3306 -d mysql
 >docker container run --name MYPROJECT -p 4433:3000 -di node:latest
 >```
 

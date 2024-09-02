@@ -1,0 +1,33 @@
+name: exemplo-de-uso
+
+# Configuração da infraestrutura reservada dos containers
+networks:
+  rede-teste:
+    driver: bridge
+
+volumes:
+  backup-data:
+    driver: local
+
+# Configuração dos serviços
+services:
+  # MySql
+  my-db-sql:
+    image: mysql:9.0.1
+    environment:
+      MYSQL_ROOT_PASSWORD: "Senha123"
+      MYSQL_DATABASE: "testedb"
+    ports:
+      - 3331:3306
+    volumes:
+      - backup-data:/var/lib/mysql
+    networks:
+      - rede-teste
+
+  # Adminer
+  adminer:
+    image: adminer:standalone
+    ports:
+      - 3332:8080
+    networks:
+      - rede-teste

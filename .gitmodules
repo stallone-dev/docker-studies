@@ -1,3 +1,6 @@
 [submodule "desafios/DIO-docker-desafio-02"]
 	path = desafios/DIO-docker-desafio-02
 	url = git@github.com:stallone-dev/DIO-docker-desafio-02.git
+[submodule "desafios/DIO-docker-desafio-03-cluster"]
+	path = desafios/DIO-docker-desafio-03-cluster
+	url = git@github.com:stallone-dev/DIO-docker-desafio-03-cluster.git
